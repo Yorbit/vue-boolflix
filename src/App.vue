@@ -2,6 +2,7 @@
   <div id="app">
     <BaseHeader @search="textToSearch"/>
     <BaseMain
+      :tvSeries="searchedTvSeries"
       :films="searchedFilm"/>
   </div>
 </template>
@@ -21,6 +22,7 @@ export default {
 
   data: function(){
     return{
+      searchedTvSeries: [],
       searchedFilm: [],
       apiKey: '632d88dbb161f7c4a52120c619baaeb9',
     }
@@ -33,6 +35,12 @@ export default {
         console.log(inputSearch + 'film');
         this.searchedFilm = result.data.results;
         console.log(this.searchedFilm);
+      })
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${inputSearch}`)
+      .then((resultSeries) => {
+        console.log(inputSearch + 'serie');
+        this.searchedTvSeries = resultSeries.data.results;
+        console.log(this.searchedTvSeries);
       })
     },
   }
