@@ -75,7 +75,7 @@ export default {
     }
     .poster{
       cursor: pointer;
-      border: 2px solid black;
+      border: 1px solid black;
       height: 100%;
       list-style: none;
     }  
