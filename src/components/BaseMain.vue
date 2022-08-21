@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isArrayEmpty()">
-      <h1 class="Film-Non-Trovato">ELEMENTO NON TROVATO</h1>
+      <h1 class="film-non-trovato">ELEMENTO NON TROVATO</h1>
     </div>
     <div v-else>
       <div class="films-container">
@@ -39,3 +39,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import'../styles/generals.scss';
+
+  div{
+    background-color: lightgray;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+    font-size: 24x;
+  }
+</style>

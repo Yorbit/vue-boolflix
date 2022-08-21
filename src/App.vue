@@ -30,13 +30,13 @@ export default {
 
   methods: {
     textToSearch(inputSearch){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${inputSearch}`)
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=it-IT&query=${inputSearch}`)
       .then((result) => {
         console.log(inputSearch + 'film');
         this.searchedFilm = result.data.results;
         console.log(this.searchedFilm);
       })
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${inputSearch}`)
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&language=it-IT&query=${inputSearch}`)
       .then((resultSeries) => {
         console.log(inputSearch + 'serie');
         this.searchedTvSeries = resultSeries.data.results;
@@ -50,4 +50,5 @@ export default {
 
 <style lang="scss">
 @import'./styles/generals.scss';
+@import'../node_modules/flag-icons/css/flag-icons.css';
 </style>

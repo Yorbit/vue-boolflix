@@ -1,8 +1,10 @@
 <template>
   <div class="poster-parent">
-    <ul class="poster"         
+    <ul class="poster" 
+        @mouseover="hover = true"
+        @mouseleave="hover = false"        
         :style="{'background-image': `url(${baseUrlDimension}${imageUrl})`}">
-        <div v-if="hover">
+        <div class="hover-item" v-if="hover">
           <h4> <strong>Titolo:</strong>  
             {{ title }}
           </h4>
@@ -60,6 +62,10 @@ export default {
           return 'not-present';
       }
     },
+    changeVoteIntoStars(vote){
+      let newVote = Math.ceil((vote * 5) / 10);
+      return newVote;
+    },
   },
 }
 </script>
@@ -72,11 +78,34 @@ export default {
     height: 500px;
     margin: 0px 15px 25px 20px;
 
-    }
+    .hover-item{
+      height: 100%;
+      padding: 20px;
+      overflow: auto;
+      background-color: gray;
+      color: white;
+      text-align: start;
+      p{
+        margin: 20px 0px;
+        text-align: center;
+      }
+      h4, span{
+        margin-bottom: 20px;
+      }
+     }
     .poster{
       cursor: pointer;
       border: 1px solid black;
       height: 100%;
       list-style: none;
-    }  
+      } 
+    .flag{
+        display: block;
+        width: 20px;
+        height: 20px;
+      }
+    span>i{
+        color: gold;
+      } 
+    }
 </style>
