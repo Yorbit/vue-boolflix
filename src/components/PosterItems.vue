@@ -4,6 +4,7 @@
         @mouseover="hover = true"
         @mouseleave="hover = false"        
         :style="{'background-image': `url(${baseUrlDimension}${imageUrl})`}">
+      <transition name="shadow">
         <div class="hover-item" v-if="hover">
           <h4> <strong>Titolo:</strong>  
             {{ title }}
@@ -17,6 +18,7 @@
           </span>
           <p>{{ overview }}</p>
         </div>
+      </transition>
     </ul>
   </div>
 </template>
@@ -106,6 +108,12 @@ export default {
       }
     span>i{
         color: gold;
+      }
+      .shadow-enter, .shadow-leave-to{
+        opacity: 0;
+      }
+      .shadow-enter-active, .shadow-leave-active {
+        transition: opacity .5s;
       } 
     }
 </style>
